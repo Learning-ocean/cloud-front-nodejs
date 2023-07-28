@@ -6,7 +6,7 @@ const port = 3000
 const users = [
     { id: 1, name: "Gaurav" },
     { id: 2, name: "Saurav" },
-    { id: 3, ame: "Hina" },
+    { id: 3, ame: "Hinal" },
     { id: 4, name: "Hiral" },
     { id: 5, name: "Yash" },
     { id: 6, name: "Ram" },
@@ -34,7 +34,8 @@ app.get('/', (req, res) => {
 
 app.get('/2m', (req, res) => {
 
-    res.setHeader('Cache-Control', 'public, max-age=3600');
+    res.setHeader('Cache-Control', 'public, max-age=120');
+    res.setHeader('learning_ocean_header', 'Test HeaderValue')
 
 
     return res.send({
@@ -54,7 +55,7 @@ app.get('/customheader', (req, res) => {
     }
 
     return res.send({
-        work: "you will get reposponse only when you will pass req_from=cloudfront_head header",
+        work: "you will get response only when you will pass req_from=cloudfront_head header",
         message: 'kindly share my youtube channel and help me to Grow :-)',
         uuid: uuid.v4(),
     })
