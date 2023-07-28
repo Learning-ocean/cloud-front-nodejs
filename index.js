@@ -1,4 +1,5 @@
 const express = require('express')
+const uuid = require('uuid');
 const app = express()
 const port = 3000
 
@@ -32,22 +33,23 @@ app.get('/', (req, res) => {
 })
 
 app.get('/2m', (req, res) => {
-    const { headers } = req
+
     res.setHeader('cache-control', 120)
 
     res.send({
-        headers,
         work: 'you are getting 120 in catch-control header',
-        message: 'kindly share my youtube channel and help me to Grow :-)'
+        message: 'kindly share my youtube channel and help me to Grow :-)',
+        uuid: uuid.v4(),
     })
 })
 
 app.get('/customheader', (req, res) => {
-    if (req.headers.req_from !== cloudfront_head) return
+    if (req.headers.req_from !== 'cloudfront_head') return
 
     res.send({
         work: "you will get reposponse only when you will pass req_from=cloudfront_head header",
-        message: 'kindly share my youtube channel and help me to Grow :-)'
+        message: 'kindly share my youtube channel and help me to Grow :-)',
+        uuid: uuid.v4(),
     })
 })
 
@@ -61,7 +63,7 @@ app.get('/users', (req, res) => {
 
     const paginatedData = users.slice(startIndex, endIndex);
 
-    return res.json({ total_count: users.length, users: paginatedData });
+    return res.json({ total_count: users.length, users: paginatedData, uuid: uuid.v4() });
 
 })
 
