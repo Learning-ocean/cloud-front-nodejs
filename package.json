@@ -1,0 +1,28 @@
+{
+  "name": "nodejs-headers",
+  "version": "1.0.0",
+  "description": "This application will give the headers in response only and just for demo purpose for youtube channel.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Learning-ocean/nodejs-headers.git"
+  },
+  "keywords": [
+    "nodejs",
+    "print",
+    "headers"
+  ],
+  "author": "Gaurav Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Learning-ocean/nodejs-headers/issues"
+  },
+  "homepage": "https://github.com/Learning-ocean/nodejs-headers#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
