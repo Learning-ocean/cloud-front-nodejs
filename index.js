@@ -45,6 +45,19 @@ app.get('/2m', (req, res) => {
     })
 })
 
+app.get('/1m', (req, res) => {
+    console.log("getting request on /1m")
+    res.setHeader('Cache-Control', 'public, max-age=60');
+    res.setHeader('learning_ocean_header', 'Test HeaderValue')
+
+
+    return res.send({
+        work: 'you are getting 60 in catch-control header',
+        message: 'kindly share my youtube channel and help me to Grow :-)',
+        uuid: uuid.v4(),
+    })
+})
+
 app.get('/customheader', (req, res) => {
     console.log(`getting req on /customheader, req_from value is ${req.headers.req_from}`)
     if (req.headers.req_from !== 'cloudfront_head') {
