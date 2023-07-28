@@ -66,7 +66,7 @@ app.get('/users', (req, res) => {
     console.log("getting request on /users")
     const pageNumber = parseInt(req.query.page) || 1;   // The page number to retrieve
     const pageSize = parseInt(req.query.size) || 5;
-
+    console.log({ pageNumber, pageSize });
     const startIndex = (pageNumber - 1) * pageSize;
     const endIndex = pageNumber * pageSize;
 
