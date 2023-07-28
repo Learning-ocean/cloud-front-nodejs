@@ -45,12 +45,13 @@ app.get('/2m', (req, res) => {
 })
 
 app.get('/customheader', (req, res) => {
-    if (req.headers.req_from !== 'cloudfront_head')
+    if (req.headers.req_from !== 'cloudfront_head') {
+        res.statusCode = 403;
         return res.send({
-            work: "you will get reposponse only when you will pass req_from=cloudfront_head header",
-            message: 'kindly share my youtube channel and help me to Grow :-)',
+            message: 'you can not access the application directly',
             uuid: uuid.v4(),
         })
+    }
 
     return res.send({
         work: "you will get reposponse only when you will pass req_from=cloudfront_head header",
