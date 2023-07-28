@@ -29,14 +29,14 @@ const users = [
 ]
 
 app.get('/', (req, res) => {
-    res.send({ message: 'kindly share my youtube channel and help me to Grow :-)' })
+    return res.send({ message: 'kindly share my youtube channel and help me to Grow :-)' })
 })
 
 app.get('/2m', (req, res) => {
 
     res.setHeader('cache-control', 120)
 
-    res.send({
+    return res.send({
         work: 'you are getting 120 in catch-control header',
         message: 'kindly share my youtube channel and help me to Grow :-)',
         uuid: uuid.v4(),
@@ -44,9 +44,14 @@ app.get('/2m', (req, res) => {
 })
 
 app.get('/customheader', (req, res) => {
-    if (req.headers.req_from !== 'cloudfront_head') return
+    if (req.headers.req_from !== 'cloudfront_head')
+        return res.send({
+            work: "you will get reposponse only when you will pass req_from=cloudfront_head header",
+            message: 'kindly share my youtube channel and help me to Grow :-)',
+            uuid: uuid.v4(),
+        })
 
-    res.send({
+    return res.send({
         work: "you will get reposponse only when you will pass req_from=cloudfront_head header",
         message: 'kindly share my youtube channel and help me to Grow :-)',
         uuid: uuid.v4(),
