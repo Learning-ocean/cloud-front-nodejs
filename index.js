@@ -34,7 +34,8 @@ app.get('/', (req, res) => {
 
 app.get('/2m', (req, res) => {
 
-    res.setHeader('cache-control', 120)
+    res.setHeader('Cache-Control', 'public, max-age=3600');
+
 
     return res.send({
         work: 'you are getting 120 in catch-control header',
