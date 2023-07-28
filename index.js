@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/2m', (req, res) => {
-
+    console.log("getting request on /2m")
     res.setHeader('Cache-Control', 'public, max-age=120');
     res.setHeader('learning_ocean_header', 'Test HeaderValue')
 
@@ -46,6 +46,7 @@ app.get('/2m', (req, res) => {
 })
 
 app.get('/customheader', (req, res) => {
+    console.log(`getting req on /customheader, req_from value is ${req.headers.req_from}`)
     if (req.headers.req_from !== 'cloudfront_head') {
         res.statusCode = 403;
         return res.send({
@@ -62,7 +63,7 @@ app.get('/customheader', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-
+    console.log("getting request on /users")
     const pageNumber = parseInt(req.query.page) || 1;   // The page number to retrieve
     const pageSize = parseInt(req.query.size) || 5;
 
